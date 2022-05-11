@@ -1,0 +1,90 @@
+.banner {
+    background-image: url(../../../assets/images/profile-banner.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        opacity: 0;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+            transition: opacity ease .5s;
+        }
+    }
+
+    height: 300px;
+    padding: 2rem;
+
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+
+    img {
+        z-index: 5;
+    }
+
+    p {
+        z-index: 5;
+        font-size: 1.2rem;
+        margin: 0;
+        margin-top: 2rem;
+        font-weight: 300;
+    }
+}
+
+.results-holder {
+    background-color: #efefef;
+    padding: 1rem;
+
+    .container {
+        text-align: center;
+
+        .canvas-holder {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            max-width: 700px;
+            margin: auto;
+
+            .donut-label {
+                font-size: 2rem;
+                font-weight: 700;
+                transform: translateY(-50px);
+                display: block;
+            }
+        }
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+        margin-top: 2rem
+    }
+
+    table {
+        border-collapse: collapse;
+
+        td {
+            border: 1px solid gray;
+            padding: .5rem;
+            font-size: .8rem;
+            font-weight: 300;
+            text-align: justify;
+
+            &:first-child {
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+    }
+}

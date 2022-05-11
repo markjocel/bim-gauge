@@ -1,0 +1,48 @@
+<div class="banner">
+    
+    <img src="../../../assets/images/banner-image.png" width="150" alt="">
+    <p>
+        Please identify your company's current and target (desired) BIM maturity in the following areas.
+    </p>
+</div>
+
+<div class="questions-holder">
+    <div class="container questions">
+        <div *ngFor="let question of QUESTIONS">
+            <h1>{{question.component}}</h1>
+    
+            <div *ngFor="let sub of question.subs; let in = index">
+                <h2>{{in+1}}. {{sub.name}}</h2>
+    
+                <div class="question" *ngFor="let q of sub.questions; let i=index">
+                    <h3>{{q.title}}</h3>
+                    <p>{{q.desc}}</p>
+
+                    <div class="numbers">
+                        <span>0 <span class="tooltip">Non-existent</span></span>
+                        <span>1 <span class="tooltip">Identified</span></span>
+                        <span>2 <span class="tooltip">Concept done</span></span>
+                        <span>3 <span class="tooltip">Managed</span></span>
+                        <span>4 <span class="tooltip">Integrated</span></span>
+                        <span>5 <span class="tooltip">Optimized</span></span>
+                    </div>
+                    <input min="1" max="6" type="range" value="1" class="{{sub.unique}} custom-slider" (change)="displayAnswer($event, sub.unique,i, q.choices)">
+    
+                    <div class="answer-desc">
+                        <p class="{{sub.unique}}{{i}}">
+                            {{q.choices[0]}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div>
+    
+            </div>
+        </div>
+    
+        <button (click)="compute()">
+            COMPUTE
+        </button>
+    </div>
+</div>

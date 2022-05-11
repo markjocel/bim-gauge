@@ -1,0 +1,110 @@
+<div class="banner">
+    <h1>
+        Company Profile
+    </h1>
+    <p>
+        Please input some general information to set your company profile.	
+    </p>
+</div>
+
+<div class="form-field">
+    <div class="container">
+        <form [formGroup]="companyForm" class="company-profile">
+            <div class="row">
+                <div class="col-xs-12 col-md-5">
+                    <h2>Company Information</h2>
+                </div>
+
+                <div class="col-xs-12 col-md-7">
+                    <div>
+                        <label for="company-name">Name of the Company</label>
+                        <input formControlName="company_name" id="company-name" type="text" placeholder="Enter...">
+                    </div>
+        
+                    <div>
+                        <label for="body">Body</label>
+                        <select formControlName="body" name="body" id="body">
+                            <option class="first-option"  value="" selected>Select an option</option>
+                            <option value="{{b}}" *ngFor="let b of BODY">{{b}}</option>
+                        </select>
+                    </div>
+                
+                    <div>
+                        <label for="activity">Activity Fields</label>
+                        <select formControlName="activity_field" name="activity" id="activity">
+                            <option class="first-option"  value="" selected>Select an option</option>
+                            <option value="{{option}}" *ngFor="let option of ACTIVITY_FIELDS">{{option}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-5">
+                    <h2>Address</h2>
+                </div>
+
+                <div class="col-xs-12 col-md-7">
+                    <div>
+                        <label for="project-name">Project Name</label>
+                        <input formControlName="project_name" id="project-name" type="text" placeholder="Enter...">
+                    </div>
+                
+                    <div>
+                        <label for="street">Street</label>
+                        <input formControlName="street" id="street" type="text" placeholder="Enter...">
+                    </div>
+                
+                    <div>
+                        <label for="zip">Zip Code</label>
+                        <input formControlName="zip_code" id="zip" type="text" placeholder="Enter...">
+                    </div>
+                
+                    <div>
+                        <label for="city">City</label>
+                        <input formControlName="city" id="city" type="text" placeholder="Enter...">
+                    </div>
+                
+                    <div>
+                        <label for="province">Province/State</label>
+                        <input formControlName="province" id="province" type="text" placeholder="Enter...">
+                    </div>
+                
+                    <div>
+                        <label for="country">Country</label>
+                        <input formControlName="country" id="country" type="text" placeholder="Enter...">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-5">
+                    <h2>Other Information</h2>
+                </div>
+
+                <div class="col-xs-12 col-md-7">
+                    <div>
+                        <label for="employees">Number of employees</label>
+                        <select formControlName="employee_number" name="employees" id="employees">
+                            <option class="first-option"  value="" selected>Select an option</option>
+                            <option value="{{option}}" *ngFor="let option of EMPLOYEE_NUMBER">{{option}}</option>
+                        </select>
+                    </div>
+                
+                    <div>
+                        <label for="years-exp">Years of experience with BIM</label>
+                        <select formControlName="years_experience" name="years-exp" id="years-exp">
+                            <option class="first-option" value="" selected>Select an option</option>
+                            <option value="{{option}}" *ngFor="let option of YEARS_EXPERIENCE">{{option}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error" *ngIf="companyForm.touched && companyForm.invalid || error">
+                *Please fill in all the fields.
+            </div>
+    
+            <button (click)="submitForm()" class="submit">
+                Next
+            </button>
+    
+        </form>
+    </div>
+</div>

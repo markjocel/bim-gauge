@@ -1,0 +1,57 @@
+.banner{
+    background-image: url(../../../assets/images/banner.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position-y: -50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding: 1.5rem;
+
+    h2{
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-top: 2rem;
+    }
+
+    p{
+        max-width: 540px;
+        margin: auto;
+        text-align:center;
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+}
+
+.steps{
+    padding: 2rem;
+    font-size: 1rem;
+
+    .text-center{
+        text-align: center;
+    }
+
+}
+
+button{
+    margin: auto;
+    display: block;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: .7rem 3.5rem;
+    border-radius: 3rem;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #d93b00;
+        text-decoration: none;
+        transition: all ease .2s;
+    }
+
+    margin-top: 1.5rem;
+}
