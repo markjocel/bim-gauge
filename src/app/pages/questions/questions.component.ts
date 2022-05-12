@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { collection, addDoc } from "firebase/firestore";
+import { environment } from 'src/environments/environment';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 @Component({
   selector: 'app-questions',
@@ -686,6 +690,7 @@ export class QuestionsComponent implements OnInit {
   ]
 
   computationTable: any[] = []
+  average: any
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -745,11 +750,14 @@ export class QuestionsComponent implements OnInit {
     })
     totalScore = totalScore / this.QUESTIONS.length
 
-    // Push here to firebase?
+    this.average = totalScore
+
+    // Push here to firebase
     // Save to local storage
     localStorage.setItem('computationTable', JSON.stringify(this.computationTable))
     localStorage.setItem('totalScore', totalScore.toString())
 
+    this.saveToFirestore()
     // console.warn(this.computationTable)
     this.router.navigate(['/result'])
   }
@@ -759,6 +767,24 @@ export class QuestionsComponent implements OnInit {
     const rangeValue = e.target.value - 1
     const selectedChoice = choices[rangeValue]
     document.getElementsByClassName(u + i)[0].innerHTML = selectedChoice
+  }
+
+  async saveToFirestore(){
+    
+    
+    const app = initializeApp(environment.firebaseConfig)
+    const db = getFirestore(app)
+    
+    try {
+      const docRef = await addDoc(collection(db, "resultInfo"), {
+        average: this.average,
+        companyProfile: localStorage.getItem('companyForm'),
+        results: JSON.stringify(this.computationTable)
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
 
 }

@@ -75,7 +75,8 @@ export class CompanyProfileComponent implements OnInit {
     } else {
       this.error = true
     }
-    console.log(this.companyForm.value)
+    localStorage.setItem('companyForm',JSON.stringify(this.companyForm.value))
+    // console.log(this.companyForm.value)
   }
 
 }

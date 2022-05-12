@@ -1,0 +1,58 @@
+<div class="admin-holder">
+    <div class="container">
+        <h1>Data Collection</h1>
+    
+        <div class="data-holder">
+            <div *ngIf="loading">
+                Loading data...
+            </div>
+            <div *ngIf="!loading">
+
+                <div class="data row" *ngFor="let data of dataCollection; let i = index">
+                    <!-- <p class="number">
+                        {{i + 1}}
+                    </p> -->
+                    <div class="col-xs-12 col-md-3 comp-prof">
+                        <div class="profile">
+                            <p>Company Profile</p>
+                            <span><span class="bold">Activity Field: </span>{{data.companyProfile.activity_field}}</span><br>
+                            <span><span class="bold">Body: </span>{{data.companyProfile.body}}</span><br>
+                            <span><span class="bold">Company Name: </span>{{data.companyProfile.company_name}}</span><br>
+                            <span><span class="bold">Project Name: </span>{{data.companyProfile.project_name}}</span><br>
+                            <span><span class="bold">Street: </span>{{data.companyProfile.street}}</span><br>
+                            <span><span class="bold">Zip Code: </span>{{data.companyProfile.zip_code}}</span><br>
+                            <span><span class="bold">City: </span>{{data.companyProfile.city}}</span><br>
+                            <span><span class="bold">Province: </span>{{data.companyProfile.province}}</span><br>
+                            <span><span class="bold">Country: </span>{{data.companyProfile.country}}</span><br>
+                            <span><span class="bold">Employee Count: </span>{{data.companyProfile.employee_number}}</span><br>
+                            <span><span class="bold">Years of Experience: </span>{{data.companyProfile.years_experience}}</span><br>
+                        </div>
+
+                        <p class="total" style="margin-bottom: 1rem;">
+                            {{data.average | number : '1.0-2'}}%
+                            <span>Average Score</span>
+                        </p>
+                    </div>
+
+                    <div class="row col-xs-12 col-md-9">
+                        <div class="col-xs-12 col-md-4" style="margin-bottom:1rem;" *ngFor="let result of data.results">
+                            <div class="result">
+                                <p class="name">{{result.fundamentalName}}</p>
+                                <p class="percent">
+                                    <span class="score">Score: </span>
+                                    {{result.fundamentalPercent | number : '1.0-2'}}%
+                                </p>
+        
+                                <div class="sub" *ngFor="let sub of result.subFundamentalInfo">
+                                    <span class="sub-name">{{sub.subName}}: </span>
+                                    <span class="sub-total">{{sub.total | number : '1.0-2'}}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

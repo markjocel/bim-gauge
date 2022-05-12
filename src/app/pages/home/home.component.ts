@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    window.scroll({top: 0, behavior: 'smooth'})
   }
 
   start(){

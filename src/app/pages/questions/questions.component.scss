@@ -1,6 +1,6 @@
 .banner{
     background-image: url(../../../assets/images/profile-banner.jpg);
-    background-size: 100%;
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
     position: relative;
@@ -115,6 +115,11 @@
                 }
             }
         }
+    }
+
+    .answer-desc{
+        font-weight: 500;
+        font-size: 1rem;
     }
 
 }

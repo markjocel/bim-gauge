@@ -37,3 +37,9 @@ menu{
         }
     }
 }
+
+@media (max-width: 767px) {
+    .how, .home{
+        display: none;
+    }
+}

@@ -10,6 +10,9 @@ import { ResultComponent } from './pages/result/result.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
+import { AdminComponent } from './admin/admin.component';
+// import { AngularFireModule } from  '@angular/fire';
+// import { AngularFirestoreModule } from  '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { NgChartsModule } from 'ng2-charts';
     QuestionsComponent,
     ResultComponent,
     MenuComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
+    // AngularFireModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, ChartType } from 'chart.js';
-// import { MultiDataSet, Label } from 'ng2-charts';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore"; 
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-result',
@@ -17,10 +20,9 @@ export class ResultComponent implements OnInit {
   constructor(private router: Router) {
     this.computationTable = JSON.parse(localStorage.getItem('computationTable') || '{}')
     this.totalScore = parseInt(localStorage.getItem('totalScore') || '0')
-
-
+    
     this.subFundamentals = this.computationTable.map((x: { subFundamentalInfo: any[]; }) => x.subFundamentalInfo.map(x => x.total)).join().split(',')
-    console.warn(this.subFundamentals)
+
   }
 
   ngOnInit(): void {
@@ -29,7 +31,6 @@ export class ResultComponent implements OnInit {
     const gaugeChart = new Chart('gaugeChart', {
       type: 'doughnut',
       data: {
-        // labels: ['Red'],
         datasets: [{
           label: 'BIM Maturity',
           data: [this.totalScore, this.totalScore - 100],
