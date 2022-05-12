@@ -22,7 +22,8 @@ export class AdminComponent implements OnInit {
         // console.warn(JSON.parse(data.results))
       })
       
-      console.warn(this.dataCollection)
+      // console.warn(this.dataCollection)
+      // console.warn(JSON.stringify(this.dataCollection))
 
     })
   }

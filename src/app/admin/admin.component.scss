@@ -100,6 +100,16 @@
                     font-weight: 400;
                 }
             }
+
+            .date,.time{
+                font-weight: 400;
+                font-size: .9rem;
+                margin: 0;
+            }
+
+            .date{
+                margin-top: 1rem;
+            }
         }
     }
 }

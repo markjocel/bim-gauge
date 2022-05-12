@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { collection, addDoc } from "firebase/firestore";
 import { environment } from 'src/environments/environment';
-import { initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 @Component({
@@ -779,7 +779,8 @@ export class QuestionsComponent implements OnInit {
       const docRef = await addDoc(collection(db, "resultInfo"), {
         average: this.average,
         companyProfile: localStorage.getItem('companyForm'),
-        results: JSON.stringify(this.computationTable)
+        results: JSON.stringify(this.computationTable),
+        createdAt: new Date().toString()
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
