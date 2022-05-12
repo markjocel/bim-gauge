@@ -435,6 +435,48 @@ export class QuestionsComponent implements OnInit {
             },
           ]
         },
+        {
+          name: 'Awareness and Motivation',
+          target: 15,
+          unique: 'awaremotiv',
+          questions: [
+            {
+              title: 'BIM Vision and General Plans',
+              desc: "Does your organization have a BIM-implementation strategy?",
+              choices: [
+                'There is an initial idea',
+                'The general concept of some standard is clear',
+                'The general concept of some standard is clear',
+                'We are testing several standards',
+                'Yes, they are already optimized',
+              ]
+            },
+            {
+              title: 'BIM Vision and General Plans',
+              desc: "Is there a clear vision of what the use of BIM will accomplish (both long-term and short-term) for your organization?",
+              choices: [
+                'No',
+                'We are thinking about it',
+                'We have an initial idea',
+                'We have a general idea',
+                'Yes, we know what we want to achieve',
+                'Yes, we know what we want to achieve and how to implement it',
+              ]
+            },
+            {
+              title: 'BIM Vision and dissemination',
+              desc: "Which does your organization consider itself to be (in your opinion) a leader, a motivator, or a follower with regards to BIM implementation?",
+              choices: [
+                'We don’t use BIM',
+                'We are still figuring out how to implement it',
+                'We try to keep up with the newest techniques',
+                'We keep up with the newest techniques',
+                'We keep up with the newest techniques and motivate others to do the same',
+                'We are pioneers and motivate others to implement BIM',
+              ]
+            },
+          ]
+        },
 
       ]
     },

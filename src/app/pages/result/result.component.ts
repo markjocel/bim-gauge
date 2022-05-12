@@ -12,12 +12,15 @@ export class ResultComponent implements OnInit {
 
   computationTable: any;
   totalScore: any;
+  subFundamentals: any;
 
   constructor(private router: Router) {
     this.computationTable = JSON.parse(localStorage.getItem('computationTable') || '{}')
     this.totalScore = parseInt(localStorage.getItem('totalScore') || '0')
 
-    console.log(this.computationTable, this.totalScore)
+
+    this.subFundamentals = this.computationTable.map((x: { subFundamentalInfo: any[]; }) => x.subFundamentalInfo.map(x => x.total)).join().split(',')
+    console.warn(this.subFundamentals)
   }
 
   ngOnInit(): void {
