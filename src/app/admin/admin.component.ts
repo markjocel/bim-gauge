@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, FieldValue, getDocs, getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -45,6 +45,10 @@ export class AdminComponent implements OnInit {
       // console.log(doc.data())
       this.dataCollection.push(doc.data())
     });
+
+    this.dataCollection = this.dataCollection.sort((a:any,b:any) => {
+      return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+    })
     this.loading = false
   }
 
@@ -54,7 +58,6 @@ export class AdminComponent implements OnInit {
     document.getElementsByTagName('body')[0].classList.add('modal-open')
 
     this.selectedResult = data
-    console.log(this.selectedResult)
   }
 
   closeModal(){
