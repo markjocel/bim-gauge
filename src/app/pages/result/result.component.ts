@@ -173,7 +173,7 @@ export class ResultComponent implements OnInit {
 
   getScoreLabel(score: string): string{
     let s: number = parseFloat(score)
-    let curr = 'The current level of your BIM competenct is '
+    let curr = 'The current level of your BIM competency is '
     if(s == 0){
       return curr + 'Non-existent' 
     } 
