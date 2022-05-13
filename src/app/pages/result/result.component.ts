@@ -171,4 +171,28 @@ export class ResultComponent implements OnInit {
 
   }
 
+  getScoreLabel(score: string): string{
+    let s: number = parseFloat(score)
+    let curr = 'The current level of your BIM competenct is '
+    if(s == 0){
+      return curr + 'Non-existent' 
+    } 
+    else if(s <= 20) {
+      return curr + 'Identified' 
+    } 
+    else if(s <= 40) {
+      return curr + 'Identified' 
+    } 
+    else if(s <= 60) {
+      return curr + 'Managed' 
+    } 
+    else if(s <= 80) {
+      return curr + 'Integrated' 
+    } 
+    else {
+      return curr + 'Optimized' 
+    } 
+    
+  }
+
 }
