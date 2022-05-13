@@ -58,8 +58,42 @@
                             </div>
                         </div>
                     </div>
+                            
+                    <button (click)="seeResults(data.results)">See full details</button>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal d-none">
+    <div class="modal-container">
+
+        <span (click)="closeModal()" class="close">
+            ✖
+        </span>
+
+        <div class="modal-body">
+            <div class="result" *ngFor="let res of selectedResult; let i = index">
+                <div class="fundamental">
+                    <div class="fundamental-info">
+                        <div class="name">{{i+1}} {{res.fundamentalName}}</div>
+                        <div class="percent">{{res.fundamentalPercent| number : '1.2-2'}}%</div>
+                    </div>
+
+                    <div class="sub" *ngFor="let sub of res.subFundamentalInfo; let ind = index">
+                        <div class="sub-info">
+                            <div class="name">{{i+1}}.{{ind+1}} {{sub.subName}}</div>
+                            <div class="total">{{sub.total| number : '1.2-2'}}%</div>
+                        </div>
+
+                        <div class="answers" *ngFor="let ans of sub.answers; let ai = index">
+                            <div class="question">{{ai+1}}. {{ans.question}}</div>
+                            <div class="answer">{{ans.answer}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

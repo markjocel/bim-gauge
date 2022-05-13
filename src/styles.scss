@@ -7,6 +7,12 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     color: #232323;
+
+    position: relative;
+
+    &.modal-open{
+        overflow: hidden;
+    }
 }
 
 .container{

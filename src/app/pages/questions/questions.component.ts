@@ -147,7 +147,7 @@ export class QuestionsComponent implements OnInit {
                 '0',
                 '1-20%',
                 '21-40%',
-                '40-60%',
+                '41-60%',
                 '61-80%',
                 '81-100%',
               ]
@@ -448,10 +448,11 @@ export class QuestionsComponent implements OnInit {
               title: 'BIM Vision and General Plans',
               desc: "Does your organization have a BIM-implementation strategy?",
               choices: [
+                'No',
                 'There is an initial idea',
                 'The general concept of some standard is clear',
-                'The general concept of some standard is clear',
                 'We are testing several standards',
+                'Yes, they are implemented',
                 'Yes, they are already optimized',
               ]
             },
@@ -508,10 +509,10 @@ export class QuestionsComponent implements OnInit {
               title: 'Open Standard deliverables',
               desc: 'The extent to which deliverables are verified by open standard specifications such as IFC, Cobie',
               choices: [
-                'None',
-                'Blank',
+                'None considered',
+                'We are thinking about it',
+                'We have an initial idea',
                 'Model exported to proprietary software (e.g. Navisworks, Solibri)',
-                'Blank',
                 'Successful export/re-import of IFC/COBie verified as a deliverable as part of the information exchange',
                 'Successful client handover of IFC/COBie as a deliverable',
               ]
@@ -577,7 +578,7 @@ export class QuestionsComponent implements OnInit {
               desc: 'Do you have clearly defined roles within your organization?',
               choices: [
                 'No',
-                'Not yet, but we are working on the definition',
+                'Not yet, but we have a general idea',
                 'Not yet, but we are working on the definition',
                 'Yes, but only for a few people or projects',
                 'Yes, for most of the people or projects',
@@ -589,7 +590,7 @@ export class QuestionsComponent implements OnInit {
               desc: "Do your organization's roles regarding BIM have a clear definition?",
               choices: [
                 'No',
-                'Not yet, but we are working on the definition',
+                'Not yet, but we have a general idea',
                 'Not yet, but we are working on the definition',
                 'Yes, but only for a few people or projects',
                 'Yes, for most of the people or projects',
@@ -705,24 +706,41 @@ export class QuestionsComponent implements OnInit {
       let totalPercentPerSub: { unique: string; total: number; subName: string }[] = [];
       let totalPerFundamental = 0;
 
-      x.subs.forEach((sub: { unique: string; target: number; name: string }) => {
+      x.subs.forEach((sub: { unique: string; target: number; name: string; questions: any[] }) => {
         let l = document.getElementsByClassName(sub.unique).length
 
         let totalPerSub = 0
 
-        for (let index = 0; index < l; index++) {
+        // for (let index = 0; index < l; index++) {
+        //   // Convert to element to get value
+        //   let element = document.getElementsByClassName(sub.unique)[index] as HTMLInputElement
+        //   let value = parseInt(element.value) - 1
+        //   totalPerSub += value
+        // }
+
+        let questionAnswers: { question: any; answer: number; }[] = []
+
+        sub.questions.forEach((x,index) => {
           // Convert to element to get value
           let element = document.getElementsByClassName(sub.unique)[index] as HTMLInputElement
           let value = parseInt(element.value) - 1
           totalPerSub += value
-        }
+
+          let qObj = {
+            question: x.title,
+            answer: value
+          }
+
+          questionAnswers.push(qObj)
+        })
 
         let percentage = totalPerSub / sub.target * 100
 
         let obj = {
           unique: sub.unique,
           subName: sub.name,
-          total: percentage
+          total: percentage,
+          answers: questionAnswers
         }
 
         totalPercentPerSub.push(obj)
@@ -774,7 +792,7 @@ export class QuestionsComponent implements OnInit {
     
     const app = initializeApp(environment.firebaseConfig)
     const db = getFirestore(app)
-    
+    console.warn(this.computationTable)
     try {
       const docRef = await addDoc(collection(db, "resultInfo"), {
         average: this.average,

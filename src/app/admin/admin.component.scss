@@ -1,5 +1,5 @@
 .admin-holder{
-    
+
     background-color: #F0F7F9;
     padding: 2rem 0;
     min-height: 100vh;
@@ -109,6 +109,145 @@
 
             .date{
                 margin-top: 1rem;
+            }
+        }
+    }
+}
+
+button{
+    margin: auto;
+    display: block;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: .7rem 3.5rem;
+    border-radius: 3rem;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #d93b00;
+        text-decoration: none;
+        transition: all ease .2s;
+    }
+
+    margin-top: 1.5rem;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    z-index: 20;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.d-none{
+        display: none;
+    }
+
+    .modal-container{
+        background-color: white;
+        padding: 2.5rem 1.5rem;
+        border-radius: 1rem;
+        max-width: 900px;
+        overflow-y: scroll;
+        max-height: calc(100vh - 100px);
+        position: relative;
+
+        .close{
+            position: absolute;
+            top: .5rem;
+            right: .75rem;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+    }
+    table {
+        border-collapse: collapse;
+
+        td {
+            border: 1px solid gray;
+            padding: .5rem;
+            font-size: .8rem;
+            font-weight: 300;
+            text-align: justify;
+
+            &:first-child {
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.result{
+    .fundamental-info{
+        display: flex;
+        font-size: 1rem;
+        font-weight: 500;
+        justify-content: space-between;
+        div{
+            padding: .5rem;
+            border: 1px solid gray;
+        }
+
+        .name{
+            flex-grow: 1;
+        }
+        
+        .percent{
+            width: 80px;
+            box-sizing: border-box;
+        }
+    }
+
+    .sub{
+        .sub-info{
+            display: flex;
+            font-size: .9rem;
+            font-weight: 400;
+            justify-content: space-between;
+            div{
+                padding: .5rem;
+                border: 1px solid gray;
+            }
+
+            .name{
+                flex-grow: 1;
+            }
+
+            .total{
+                width: 80px;
+                box-sizing: border-box;
+            }
+        }
+
+        .answers{
+            display: flex;
+            font-size: .8rem;
+            font-weight: 300;
+            justify-content: space-between;
+            div{
+                padding: .5rem;
+                border: 1px solid gray;
+            }
+
+            .question{
+                flex-grow: 1;
+            }
+
+            .answer{
+                text-align: center;
+                font-weight: 500s;
+                width: 80px;
+                box-sizing: border-box;
             }
         }
     }

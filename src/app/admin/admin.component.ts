@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class AdminComponent implements OnInit {
 
   dataCollection: any[] = []
+  selectedResult:any = []
   loading: boolean = false
 
   constructor() { 
@@ -47,4 +48,19 @@ export class AdminComponent implements OnInit {
     this.loading = false
   }
 
+  seeResults(data:any[]){
+    let modal = document.getElementsByClassName('modal')[0]
+    modal.classList.contains('d-none') ? modal.classList.remove('d-none') : modal.classList.add('d-none')
+    document.getElementsByTagName('body')[0].classList.add('modal-open')
+
+    this.selectedResult = data
+    console.log(this.selectedResult)
+  }
+
+  closeModal(){
+    let modal = document.getElementsByClassName('modal')[0]
+    modal.classList.contains('d-none') ? modal.classList.remove('d-none') : modal.classList.add('d-none')
+    document.getElementsByTagName('body')[0].classList.remove('modal-open')
+  }
+  
 }
