@@ -63,7 +63,7 @@ export class ResultComponent implements OnInit {
     const maturityChart = new Chart('maturityChart', {
       type: 'radar',
       data: {
-        labels: this.computationTable.map((x: { fundamentalName: any; }) => x.fundamentalName.split(' ')[0]),
+        labels: this.computationTable.map((x: { fundamentalName: any; }) => x.fundamentalName.split()[0]),
         datasets: [{
           label: 'Maturity Chart',
           data: this.computationTable.map((x: { fundamentalPercent: any; }) => x.fundamentalPercent),
@@ -77,7 +77,7 @@ export class ResultComponent implements OnInit {
         },
         {
           label: 'Maturity Chart',
-          data: [100, 100, 100, 100, 100],
+          data: Array(this.computationTable.length).fill(100),
           // fill: false,
           borderColor: 'none',
           pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -88,7 +88,7 @@ export class ResultComponent implements OnInit {
           fill: true
         }, {
           // label: 'Maturity Chart',
-          data: Array(5).fill(0),
+          data: Array(this.computationTable.length).fill(0),
           fill: false,
           borderColor: 'orangered',
           pointBackgroundColor: 'black',

@@ -23,63 +23,8 @@ export class QuestionsComponent implements OnInit {
 
   QUESTIONS: any[] = [
     {
-      component: 'PROCESS (BIM Usage & Information Flow)',
+      component: 'BIM Usage & Information Flow',
       subs: [
-        {
-          name: 'Coordination',
-          target: 20,
-          unique: 'coord',
-          questions: [
-            {
-              title: 'Virtual Design Reviews',
-              desc: 'To what extent Virtual Design Reviews were conducted before issuing the Model for both coordination and quality assurance purposes',
-              choices: [
-                'None',
-                'Reviews of Single Discipline Model were held. No formal process was established.',
-                'Reviews of Multi-Discipline Model were held. No formal process was established.',
-                'Regular reviews of Multi-Disciplined virtual models are conducted internaly. Formal Process was established.',
-                'All stages of the design process are reviewed by multi-disciplinary team, the client, and the contractor.',
-                'The model is thoroughly checked and verified before being released, along with thorough reviews.'
-              ]
-            },
-            {
-              title: '3D Coordination',
-              desc: 'When and how the model is used during the Design and Construction phases',
-              choices: [
-                'None Considered',
-                'A majority of the elements are modeled, and 3D coordination is conducted ad hoc.',
-                'A majority of the elements are modeled, and regular 3D coordination reviews take place but not recorded.',
-                'A majority of the elements are modeled, and regular 3D coordination reviews take place and are recorded.',
-                'Although all components are modeled, they are not coordinated between disciplines',
-                'Every component is modeled and coordinated across disciplines',
-              ]
-            },
-            {
-              title: 'Drawings',
-              desc: 'Determines the extent to which the model is directly used to generate documentation, such as drawings.',
-              choices: [
-                'Model not linked to Drawings',
-                'Model Partially Linked to Drawings (some 2D)',
-                'Models are used to generate plans, sections, etc.',
-                'Models are used to generate most of the plans and sections.',
-                'Models are used to generate all Plans, Sections, etc.',
-                'Models are used to generate all Plans, Sections and Schedules',
-              ]
-            },
-            {
-              title: 'Discipline Model Reviews',
-              desc: 'In order to ensure information exchange is proper, evaluate whether appropriate checks and validations have been carried out.',
-              choices: [
-                'No checking of Models',
-                'Models are self-checked only by technicians',
-                'Models are checked by engineers',
-                'Engineer-led reviewing whole of models',
-                'Models are fully checked and QA verified as part of the collaboration process',
-                'Model and any documentation are cross-checked for quality assurance, including a verification step.',
-              ]
-            },
-          ]
-        },
         {
           name: 'BIM Use',
           target: 15,
@@ -198,6 +143,66 @@ export class QuestionsComponent implements OnInit {
                 'A company uses a recognised CDE internally',
                 'Implementation of wider design teams, including single project-wide CDE',
                 'Client, Designers, Contractors have a single CDE for the entire project',
+              ]
+            },
+          ]
+        }
+      ]
+    },
+    {
+      component: 'STRATEGY (Collaboration and Working Practice)',
+      subs: [
+        {
+          name: 'Coordination',
+          target: 20,
+          unique: 'coord',
+          questions: [
+            {
+              title: 'Virtual Design Reviews',
+              desc: 'To what extent Virtual Design Reviews were conducted before issuing the Model for both coordination and quality assurance purposes',
+              choices: [
+                'None',
+                'Reviews of Single Discipline Model were held. No formal process was established.',
+                'Reviews of Multi-Discipline Model were held. No formal process was established.',
+                'Regular reviews of Multi-Disciplined virtual models are conducted internaly. Formal Process was established.',
+                'All stages of the design process are reviewed by multi-disciplinary team, the client, and the contractor.',
+                'The model is thoroughly checked and verified before being released, along with thorough reviews.'
+              ]
+            },
+            {
+              title: '3D Coordination',
+              desc: 'When and how the model is used during the Design and Construction phases',
+              choices: [
+                'None Considered',
+                'A majority of the elements are modeled, and 3D coordination is conducted ad hoc.',
+                'A majority of the elements are modeled, and regular 3D coordination reviews take place but not recorded.',
+                'A majority of the elements are modeled, and regular 3D coordination reviews take place and are recorded.',
+                'Although all components are modeled, they are not coordinated between disciplines',
+                'Every component is modeled and coordinated across disciplines',
+              ]
+            },
+            {
+              title: 'Drawings',
+              desc: 'Determines the extent to which the model is directly used to generate documentation, such as drawings.',
+              choices: [
+                'Model not linked to Drawings',
+                'Model Partially Linked to Drawings (some 2D)',
+                'Models are used to generate plans, sections, etc.',
+                'Models are used to generate most of the plans and sections.',
+                'Models are used to generate all Plans, Sections, etc.',
+                'Models are used to generate all Plans, Sections and Schedules',
+              ]
+            },
+            {
+              title: 'Discipline Model Reviews',
+              desc: 'In order to ensure information exchange is proper, evaluate whether appropriate checks and validations have been carried out.',
+              choices: [
+                'No checking of Models',
+                'Models are self-checked only by technicians',
+                'Models are checked by engineers',
+                'Engineer-led reviewing whole of models',
+                'Models are fully checked and QA verified as part of the collaboration process',
+                'Model and any documentation are cross-checked for quality assurance, including a verification step.',
               ]
             },
           ]
