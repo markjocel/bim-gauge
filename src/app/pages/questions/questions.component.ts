@@ -265,7 +265,7 @@ export class QuestionsComponent implements OnInit {
       ]
     },
     {
-      component: 'TECHNOLOGY (Tools & Applications)',
+      component: 'INFRASTRUCTURE (Tools and Applications)',
       subs: [
         {
           name: 'System',
@@ -571,7 +571,7 @@ export class QuestionsComponent implements OnInit {
       ]
     },
     {
-      component: 'PEOPLE (MENTALITY & CULTURE)',
+      component: 'PERSONNEL (Mentality & Culture)',
       subs: [
         {
           name: 'Roles and Responsibilities',
@@ -725,7 +725,7 @@ export class QuestionsComponent implements OnInit {
 
         let questionAnswers: { question: any; answer: number; }[] = []
 
-        sub.questions.forEach((x,index) => {
+        sub.questions.forEach((x, index) => {
           // Convert to element to get value
           let element = document.getElementsByClassName(sub.unique)[index] as HTMLInputElement
           let value = parseInt(element.value) - 1
@@ -792,9 +792,9 @@ export class QuestionsComponent implements OnInit {
     document.getElementsByClassName(u + i)[0].innerHTML = selectedChoice
   }
 
-  async saveToFirestore(){
-    
-    
+  async saveToFirestore() {
+
+
     const app = initializeApp(environment.firebaseConfig)
     const db = getFirestore(app)
     console.warn(this.computationTable)

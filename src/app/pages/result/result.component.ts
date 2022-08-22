@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Chart, ChartType } from 'chart.js';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore"; 
+import { collection, getDocs } from "firebase/firestore";
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,7 +20,7 @@ export class ResultComponent implements OnInit {
   constructor(private router: Router) {
     this.computationTable = JSON.parse(localStorage.getItem('computationTable') || '{}')
     this.totalScore = parseInt(localStorage.getItem('totalScore') || '0')
-    
+
     this.subFundamentals = this.computationTable.map((x: { subFundamentalInfo: any[]; }) => x.subFundamentalInfo.map(x => x.total)).join().split(',')
 
   }
@@ -63,7 +63,7 @@ export class ResultComponent implements OnInit {
     const maturityChart = new Chart('maturityChart', {
       type: 'radar',
       data: {
-        labels: this.computationTable.map((x: { fundamentalName: any; }) => x.fundamentalName.split()[0]),
+        labels: this.computationTable.map((x: { fundamentalName: any; }, index: number) => index != 0 ? x.fundamentalName.split(' ')[0] : x.fundamentalName),
         datasets: [{
           label: 'Maturity Chart',
           data: this.computationTable.map((x: { fundamentalPercent: any; }) => x.fundamentalPercent),
@@ -171,28 +171,28 @@ export class ResultComponent implements OnInit {
 
   }
 
-  getScoreLabel(score: string): string{
+  getScoreLabel(score: string): string {
     let s: number = parseFloat(score)
     let curr = 'The current level of your BIM competency is '
-    if(s == 0){
-      return curr + 'Non-existent' 
-    } 
-    else if(s <= 20) {
-      return curr + 'Identified' 
-    } 
-    else if(s <= 40) {
-      return curr + 'Identified' 
-    } 
-    else if(s <= 60) {
-      return curr + 'Managed' 
-    } 
-    else if(s <= 80) {
-      return curr + 'Integrated' 
-    } 
+    if (s == 0) {
+      return curr + 'Non-existent'
+    }
+    else if (s <= 20) {
+      return curr + 'Identified'
+    }
+    else if (s <= 40) {
+      return curr + 'Identified'
+    }
+    else if (s <= 60) {
+      return curr + 'Managed'
+    }
+    else if (s <= 80) {
+      return curr + 'Integrated'
+    }
     else {
-      return curr + 'Optimized' 
-    } 
-    
+      return curr + 'Optimized'
+    }
+
   }
 
 }
